@@ -5,7 +5,7 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit proprietary targets
 $(call inherit-product-if-exists, vendor/xiaomi/sm6250-common/sm6250-common-vendor.mk)
@@ -18,6 +18,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # MiuiCamera
 #$(call inherit-product-if-exists, vendor/xiaomi/miuicamera/config.mk)
+
+#PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/sm6250-kernel/sm6250/kernel-headers
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
@@ -363,11 +365,11 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     ims-ext-common \
     ims_ext_common.xml \
-    #qti-telephony-hidl-wrapper \
-    #qti_telephony_hidl_wrapper.xml \
-    #qti-telephony-utils \
-    #qti_telephony_utils.xml \
-    #telephony-ext
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    telephony-ext
 
 #PRODUCT_BOOT_JARS += \
 #    telephony-ext
@@ -410,7 +412,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libhidlcache.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libhidlcache.so
 
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
+PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # Vulkan
 PRODUCT_COPY_FILES += \
