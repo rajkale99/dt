@@ -12,6 +12,11 @@ include device/xiaomi/sm6250-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/miatoll
 
+BOARD_PREBUILT_DTBOIMAGE := device/xiaomi/sm6250-kernel/dtbo.img
+TARGET_NO_KERNEL := false
+
+BOARD_PREBUILT_DTBIMAGE_DIR := device/xiaomi/sm6250-kernel
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := miatoll
 
