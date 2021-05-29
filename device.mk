@@ -12,17 +12,9 @@ $(call inherit-product-if-exists, vendor/xiaomi/miatoll/miatoll-vendor.mk)
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
-
-
-PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/sm6250-kernel/kernel-headers
-
-PRODUCT_SOONG_NAMESPACES += \
-	hardware/qcom-caf/wlan \
-	hardware/qcom-caf/sm8150 \
-	hardware/qcom-caf/sm8150/display \
-	hardware/qcom-caf/sm8150/media \
-        hardware/qcom-caf/sm8150/audio
+    $(LOCAL_PATH) \
+    vendor/xiaomi/sm6250-common \
+    vendor/xiaomi/hals
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/xiaomi/sm6250-kernel/Image.gz
