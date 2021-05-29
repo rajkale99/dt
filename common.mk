@@ -9,19 +9,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit proprietary targets
 $(call inherit-product-if-exists, vendor/xiaomi/sm6250-common/sm6250-common-vendor.mk)
-$(call inherit-product-if-exists, vendor/xiaomi/hals/hals.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/hals/hals-vendor.mk)
 
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
-# Setup dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
-
-# MiuiCamera
-#$(call inherit-product-if-exists, vendor/xiaomi/miuicamera/config.mk)
-
-#PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/sm6250-kernel/sm6250/kernel-headers
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
@@ -111,10 +103,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
-
-# Doze
-#PRODUCT_PACKAGES += \
- #   XiaomiDoze
 
 # Fastbootd
 PRODUCT_PACKAGES += \
@@ -213,10 +201,6 @@ PRODUCT_COPY_FILES += \
 # Light
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_sm6250
-
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -387,17 +371,3 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
     frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml
-
-# WiFi Display
-#PRODUCT_PACKAGES += \
- #   libnl \
-  #  libwfdaac_vendor
-
-#PRODUCT_BOOT_JARS += \
- #   WfdCommon
-
-# XiaomiParts
-#PRODUCT_PACKAGES += \
- #   XiaomiParts \
-  #  init.xiaomiparts.rc \
-   # init.xiaomiparts.sh
